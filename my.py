@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, MetaData, Table, Integer,\
     String, Column, DateTime, ForeignKey, Numeric, SmallInteger
 
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Session, sessionmaker
 
 from datetime import datetime
 
@@ -12,6 +12,7 @@ db_name = 'sqlalchemy_test'
 
 engine = create_engine(f"postgresql://{user_name_db}:{password_db}@localhost/{db_name}")
 
+session = sessionmaker(bind=engine)
 
 Base = declarative_base()
 
