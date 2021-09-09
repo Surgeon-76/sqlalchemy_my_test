@@ -10,7 +10,7 @@ user_name_db = 'surglin'
 password_db = 'Nusha230399'
 db_name = 'sqlalchemy_test'
 
-engine = create_engine(f"postgresql://{user_name_db}:{password_db}@localhost/{db_name}")
+engine = create_engine(f"postgresql://{user_name_db}:{password_db}@localhost/{db_name}", echo=True)
 
 session = sessionmaker(bind=engine)
 
