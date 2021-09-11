@@ -54,9 +54,9 @@ class Customer(Base):
 #     quantity = Column(SmallInteger())
 #     item = relationship("Item")
 
-#session = Session()
+session = session()
 
-db  = session()
+#db  = session()
 
 Base.metadata.create_all(engine)
 
@@ -69,20 +69,20 @@ c1 = Customer(
     email = 'moseend@mail.com'
 )
 
-# c2 = Customer(
-#     first_name = 'Valeriy',
-#     last_name = 'Golyshkin',
-#     username = 'Fortioneaks',
-#     email = 'fortioneaks@gmail.com'
-# )
+c2 = Customer(
+    first_name = 'Valeriy',
+    last_name = 'Golyshkin',
+    username = 'Fortioneaks',
+    email = 'fortioneaks@gmail.com'
+)
 
-print(c1.first_name)
+print(c1.first_name, c2.first_name)
 
-db.add(c1)
-#session.add(c2)
+session.add(c1)
+session.add(c2)
 
-print(db.new)
+print(session.new)
 
 #Base.metadata.create_all(engine)
-db.commit()
-db.close()
+session.commit()
+session.close()
