@@ -183,8 +183,10 @@ print(session.query(Customer.first_name).filter(Customer.first_name == 'Vadim').
 print(session.query(Customer.id, Customer.username, Order.id).join(Order).join(OrderLine).join(Item).all())
 
 
-
+# i = session.query(Customer).filter(Customer.first_name == 'Dmitriy').one()
+# session.delete(i)
+# session.commit()
 # print(session.query(Customer).first())
 # print(session.new)
-
+session.close()
 
